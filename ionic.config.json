@@ -1,0 +1,8 @@
+{
+  "name": "tfg-0.0.0",
+  "app_id": "c1e30ee7",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}
