@@ -6,7 +6,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { SocialSharing } from '@ionic-native/social-sharing';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
-import { AdMobFree, AdMobFreeBannerConfig } from '@ionic-native/admob-free';
+import { AdMobFree } from '@ionic-native/admob-free'; 
+// import { AdMobFreeBannerConfig } from '@ionic-native/admob-free';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
