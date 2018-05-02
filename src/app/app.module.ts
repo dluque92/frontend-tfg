@@ -8,9 +8,11 @@ import { SocialSharing } from '@ionic-native/social-sharing';
 import { UniqueDeviceID } from '@ionic-native/unique-device-id';
 import { AdMobFree } from '@ionic-native/admob-free'; 
 // import { AdMobFreeBannerConfig } from '@ionic-native/admob-free';
+import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ApiConnectionProvider } from '../providers/api-connection/api-connection';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,7 @@ import { HomePage } from '../pages/home/home';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -33,7 +36,8 @@ import { HomePage } from '../pages/home/home';
     SocialSharing,
     UniqueDeviceID,
     AdMobFree,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ApiConnectionProvider
   ]
 })
 export class AppModule {}
