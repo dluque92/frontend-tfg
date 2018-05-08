@@ -47,6 +47,9 @@ export class ApiConnectionProvider {
       case 422:
         mappedError = RESPONSE_ERROR.PARAMETER_NOT_VALID
         break;
+      case 502:
+        mappedError = RESPONSE_ERROR.ERROR_IN_SERVER
+        break;
     }
 
     return mappedError;
@@ -57,5 +60,6 @@ export class ApiConnectionProvider {
 export enum RESPONSE_ERROR {
   REQUIRED_PARAMETER_NOT_FILLED,
   UNAUTHORIZED,
+  ERROR_IN_SERVER,
   PARAMETER_NOT_VALID
 }

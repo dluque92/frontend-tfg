@@ -13,6 +13,14 @@
   <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
   <p>
     If you get lost, the
-    <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
+    <button ion-button (click)="openBarcodeScanner()">ESCANEAR</button>
   </p>
+  <ion-list *ngIf="name != ''">
+    <ion-item *ngFor="let item of items">
+      <h2>{{item.shopName}}</h2>
+      <h3>{{item.priceWithShipping}}</h3>
+      <h3>{{item.price}} + {{item.shippingCost}}</h3>
+      <button ion-button outline (click)="item.url">Primary Outline</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
