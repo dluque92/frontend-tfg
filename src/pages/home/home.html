@@ -15,12 +15,4 @@
     If you get lost, the
     <button ion-button (click)="openBarcodeScanner()">ESCANEAR</button>
   </p>
-  <ion-list *ngIf="name != ''">
-    <ion-item *ngFor="let item of items">
-      <h2>{{item.shopName}}</h2>
-      <h3>{{item.priceWithShipping}}</h3>
-      <h3>{{item.price}} + {{item.shippingCost}}</h3>
-      <button ion-button outline (click)="item.url">Primary Outline</button>
-    </ion-item>
-  </ion-list>
 </ion-content>

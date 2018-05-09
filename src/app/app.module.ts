@@ -12,12 +12,15 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ResultSearchPage } from '../pages/result-search/result-search';
 import { ApiConnectionProvider } from '../providers/api-connection/api-connection';
+import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultSearchPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { ApiConnectionProvider } from '../providers/api-connection/api-connectio
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ResultSearchPage
   ],
   providers: [
     StatusBar,
@@ -37,7 +41,8 @@ import { ApiConnectionProvider } from '../providers/api-connection/api-connectio
     UniqueDeviceID,
     AdMobFree,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ApiConnectionProvider
+    ApiConnectionProvider,
+    SpinnerDialog
   ]
 })
 export class AppModule {}
