@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { ScanPage } from '../pages/scan/scan';
 import { ResultSearchPage } from '../pages/result-search/result-search';
 import { ApiConnectionProvider } from '../providers/api-connection/api-connection';
 import { SpinnerDialog } from '@ionic-native/spinner-dialog';
@@ -20,6 +21,7 @@ import { SpinnerDialog } from '@ionic-native/spinner-dialog';
   declarations: [
     MyApp,
     HomePage,
+    ScanPage,
     ResultSearchPage
   ],
   imports: [
@@ -31,6 +33,7 @@ import { SpinnerDialog } from '@ionic-native/spinner-dialog';
   entryComponents: [
     MyApp,
     HomePage,
+    ScanPage,
     ResultSearchPage
   ],
   providers: [

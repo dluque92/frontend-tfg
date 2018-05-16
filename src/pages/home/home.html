@@ -1,18 +1,15 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Select Country
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-
-  <span class="flag-icon flag-icon-gr"></span>
-  <span class="flag-icon flag-icon-gr flag-icon-squared"></span>
-  <p>
-    If you get lost, the
-    <button ion-button (click)="openBarcodeScanner()">ESCANEAR</button>
-  </p>
+  <ion-row>
+    <ion-col col-4 align-self-center *ngFor="let country of countries">
+        <span (click)="selectCountry(country)" class="flag-icon flag-icon-{{country}}"></span>
+    </ion-col>
+  </ion-row>
 </ion-content>
