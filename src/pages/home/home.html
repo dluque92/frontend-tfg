@@ -1,15 +1,10 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Select Country
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+
 
 <ion-content padding>
-  <ion-row>
-    <ion-col col-4 align-self-center *ngFor="let country of countries">
-        <span (click)="selectCountry(country)" class="flag-icon flag-icon-{{country}}"></span>
-    </ion-col>
-  </ion-row>
-</ion-content>
+    <div class="center">
+        <a class="pushme"><span class="inner" (click)="openBarcodeScanner()">Scan now</span></a>
+    </div>
+    <div class="center2">
+        <a class="pushme"><span class="inner" (click)="presentPrompt()">Write Manualy</span></a>
+    </div>
+  </ion-content>

@@ -16,6 +16,7 @@ import { ScanPage } from '../pages/scan/scan';
 import { ResultSearchPage } from '../pages/result-search/result-search';
 import { ApiConnectionProvider } from '../providers/api-connection/api-connection';
 import { SpinnerDialog } from '@ionic-native/spinner-dialog';
+import { LoadingProvider } from '../providers/loading/loading';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { SpinnerDialog } from '@ionic-native/spinner-dialog';
     AdMobFree,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ApiConnectionProvider,
-    SpinnerDialog
+    SpinnerDialog,
+    LoadingProvider
   ]
 })
 export class AppModule {}

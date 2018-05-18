@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController, NavParams, IonicPage, AlertController } from 'ionic-angular';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { ScanPage } from '../scan/scan';
-//import { SpinnerDialog } from '@ionic-native/spinner-dialog';
 
 @Component({
   selector: 'page-home',
@@ -10,17 +10,52 @@ import { ScanPage } from '../scan/scan';
 
 export class HomePage {
 
-  countries = ['at','au','be','br','ca','ch','cz','de','dk','es','fr','gb','ie','in',
-               'it','jp','mx','my','nl','no','ph','pl','ru','se','sg','tr','us'];
+  country : any;
 
-// private spinnerDialog: SpinnerDialog
-  constructor(public navCtrl: NavController) {
-      
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    private scanner: BarcodeScanner, private alertCtrl: AlertController) {
+      this.country = this.navParams.get('country');
   }
 
-  selectCountry(country){
-    console.log(country);
-    this.navCtrl.push(ScanPage, {'country': country});
+  openBarcodeScanner(){
+    this.scanner.scan().then(barcodeData => {
+      console.log('Barcode data', barcodeData);
+      if(barcodeData.text){
+        this.navCtrl.push(ScanPage, {'barcode': barcodeData.text});
+      }
+    }).catch(err => {
+        console.log('Error', err);
+    });
+  }
+
+  presentPrompt() {
+    let alert = this.alertCtrl.create({
+      title: 'Write your barcode',
+      inputs: [
+        {
+          name: 'Barcode',
+          placeholder: 'Barcode',
+          type: 'number'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Scan',
+          handler: data => {
+            console.log('Barcode data', data);
+            this.navCtrl.push(ScanPage, {'barcode': data.Barcode});
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }
